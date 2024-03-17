@@ -1,0 +1,93 @@
+.main {
+  display: flex;
+  height: 98vh;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+  overflow: hidden;
+}
+
+.test {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  height: 90vh;
+  width: 28vw;
+  min-height: 650px;
+  min-width: 350px;
+  border-radius: 5px;
+  flex-direction: column;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.topBar {
+  display: flex;
+  background-color: rgb(236, 236, 236);
+  height: 7vh;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.profileImg {
+  height: 43px;
+  width: 43px;
+  border-radius: 32%;
+  border: 1px solid rgb(140, 192, 209);
+  margin-right: 15px;
+}
+
+.notice {
+  height: 50px;
+  width: 100%;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: 10px;
+}
+
+.notice p {
+  color: rgb(134, 134, 134);
+  font-size: 16px;
+  font-weight: 8px;
+  margin-top: 20px;
+  padding-left: 15px;
+}
+
+.chatbody {
+  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100px;
+}
+
+.chatRoomContainer {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid rgb(199, 199, 199);
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.chatRoomContainer img {
+  margin-left: 15px;
+}
+
+.chatRoomContainer div {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatRoomName {
+  font-size: 15px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.chatRoomNumber {
+  color: rgb(134, 134, 134);
+  font-size: 13px;
+  padding: 0px;
+  margin: 0px;
+}
