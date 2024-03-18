@@ -202,3 +202,13 @@
   border-radius: 32%;
   border: 1px solid rgb(140, 192, 209);
 }
+
+.chatBoxWithTime {
+  display: flex;
+}
+
+.createAtBox {
+  margin-top: 15px;
+  margin-left: 5px;
+  font-size: 10px;
+}

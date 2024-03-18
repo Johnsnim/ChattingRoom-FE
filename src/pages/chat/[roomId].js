@@ -38,6 +38,28 @@ export default function Chat() {
       handleClick();
     }
   };
+  function formatTime(dateTimeString) {
+    const date = new Date(dateTimeString);
+    const now = new Date();
+
+    const isToday =
+      date.getDate() === now.getDate() &&
+      date.getMonth() === now.getMonth() &&
+      date.getFullYear() === now.getFullYear();
+
+    if (isToday) {
+      const hour = date.getHours();
+      const minute = date.getMinutes();
+      const period = hour < 12 ? "오전" : "오후";
+      const formattedHour = hour % 12 === 0 ? 12 : hour % 12;
+      const formattedMinute = minute < 10 ? "0" + minute : minute;
+      return `${period} ${formattedHour}시 ${formattedMinute}분`;
+    } else {
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      return `${month}월 ${day}일`;
+    }
+  }
 
   const connect = useCallback(() => {
     try {
@@ -136,8 +158,8 @@ export default function Chat() {
   };
 
   const addMessage = (message) => {
-    const { userId, content, id } = message;
-    const str = { sender: userId, content, id };
+    const { userId, content, id, createdAt } = message;
+    const str = { sender: userId, content, id, createdAt };
     setChatList((prevChatList) => [...prevChatList, str]);
   };
 
@@ -232,15 +254,21 @@ export default function Chat() {
                   >
                     {message.sender === userId ? "" : message.sender}
                   </span>
-                  <span
-                    className={
-                      message.sender === userId
-                        ? styles.rightChatBox
-                        : styles.leftChatBox
-                    }
-                  >
-                    {message.content}
-                  </span>
+
+                  <div className={styles.chatBoxWithTime}>
+                    <span
+                      className={
+                        message.sender === userId
+                          ? styles.rightChatBox
+                          : styles.leftChatBox
+                      }
+                    >
+                      {message.content}
+                    </span>
+                    <span className={styles.createAtBox}>
+                      {formatTime(message.createdAt)}
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
